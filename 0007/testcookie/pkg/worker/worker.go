@@ -1,7 +1,6 @@
 package worker
 
 import (
-	"github.com/wahyudibo/golang-reverse-proxy/modules/ahrefs/internal/config"
 	"testcookie/pkg/headless"
 )
 
@@ -11,18 +10,14 @@ type Worker interface {
 	Stop()
 }
 
-func New(cfg *config.Config, headlessBrowser *headless.HeadlessBrowser, cache *redis.Client) *Manager {
+func New(headlessBrowser *headless.HeadlessBrowser) *Manager {
 	return &Manager{
-		Config:          cfg,
-		Cache:           cache,
 		HeadlessBrowser: headlessBrowser,
 	}
 }
 
 // Manager manages and passes shared properties to all workers
 type Manager struct {
-	Config          *config.Config
-	Cache           *redis.Client
 	HeadlessBrowser *headless.HeadlessBrowser
 	workers         []Worker
 }
@@ -34,8 +29,6 @@ func (manager *Manager) add(workers ...Worker) {
 func (manager *Manager) register() {
 	loginWorker := &loginWorker{
 		Name:            "AHX:LOGIN",
-		Config:          manager.Config,
-		Cache:           manager.Cache,
 		HeadlessBrowser: manager.HeadlessBrowser,
 		StopCh:          make(chan bool),
 	}

@@ -2,9 +2,6 @@ package headless
 
 import (
 	"context"
-	"os"
-	"strconv"
-
 	"github.com/chromedp/chromedp"
 	"github.com/rs/zerolog/log"
 )
@@ -18,13 +15,10 @@ func New(ctx context.Context) (*HeadlessBrowser, error) {
 	opts := append(chromedp.DefaultExecAllocatorOptions[:],
 		chromedp.DisableGPU,
 		chromedp.NoSandbox,
-		chromedp.Flag("user-agent", os.Getenv("PROXY_USER_AGENT")),
+		chromedp.Flag("user-agent", true),
 	)
 
-	isHeadless, err := strconv.ParseBool(os.Getenv("HEADLESS_BROWSER_HEADLESS_MODE"))
-	if err != nil {
-		return nil, err
-	}
+	isHeadless := true
 
 	if !isHeadless {
 		opts = append(opts,

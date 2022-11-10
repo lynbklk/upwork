@@ -12,7 +12,7 @@ import (
 	"github.com/chromedp/cdproto/page"
 	"github.com/chromedp/chromedp"
 	"github.com/rs/zerolog/log"
-	"github.com/wahyudibo/golang-reverse-proxy/modules/ahrefs/internal/headless/task"
+	task "testcookie/pkg/chrome"
 	"testcookie/pkg/headless"
 )
 

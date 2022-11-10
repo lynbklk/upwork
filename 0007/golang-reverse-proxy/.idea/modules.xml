@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/golang-proxy-reverse.iml" filepath="$PROJECT_DIR$/.idea/golang-proxy-reverse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/golang-reverse-proxy.iml" filepath="$PROJECT_DIR$/.idea/golang-reverse-proxy.iml" />
     </modules>
   </component>
 </project>
