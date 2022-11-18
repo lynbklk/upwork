@@ -2,14 +2,7 @@ package main
 
 import (
 	"context"
-	"encoding/json"
-	"fmt"
-	"github.com/chromedp/cdproto/network"
 	"github.com/chromedp/chromedp"
-	"io/ioutil"
-	task "testcookie/pkg/chrome"
-	"testcookie/pkg/headless"
-	"time"
 )
 
 func main() {
